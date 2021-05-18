@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer"
+    tools:openDrawer="start"
+    tools:context=".Dashboard">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_200">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                style="?attr/actionBarTheme"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:navigationIcon="@drawable/menu" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:text="Dashboard"
+                android:textAlignment="viewEnd"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toStartOf="@+id/totaldata"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                android:gravity="end" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="Total Data"
+                android:textAlignment="viewEnd"
+                app:layout_constraintEnd_toStartOf="@+id/totaldata"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                android:gravity="end" />
+            <TextView
+                android:id="@+id/totaldata"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:textColor="@color/white"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:textAlignment="gravity"
+                android:textSize="90sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                android:gravity="center_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relative"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/totaldata">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10sp"
+                    android:src="@drawable/ic_add_new_data">
+                </ImageView>
+                <TextView
+                    android:id="@+id/new_data_entry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="new data entry"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="20sp">
+                </TextView>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view"
+                android:importantForAutofill="auto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#F8F8F8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relative"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navmenu"
+        android:background="@color/white"
+        app:menu="@menu/iconmenu"
+        app:headerLayout="@layout/nav_header"
+        android:layout_gravity="start"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
